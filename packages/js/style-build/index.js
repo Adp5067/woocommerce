@@ -34,12 +34,23 @@ module.exports = {
 								],
 							},
 							webpackImporter: true,
-							additionalData:
-								'@use "sass:math";' +
-								'@import "_colors"; ' +
-								'@import "_variables"; ' +
-								'@import "_breakpoints"; ' +
-								'@import "_mixins"; ',
+							additionalData: ( content, loaderContext ) => {
+								const { resourcePath } = loaderContext;
+								if ( resourcePath.includes( 'wp-calypso' ) ) {
+									// TODO: change to @automattic/tour-kit when it's released
+									// Ignore adding additional data to fix "SassError: @use rules must be written before any other rules." for wp-calypso packages since they have included '@use "sass:math" and other necessary imports.
+									return content;
+								}
+
+								return (
+									'@use "sass:math";' +
+									'@import "_colors"; ' +
+									'@import "_variables"; ' +
+									'@import "_breakpoints"; ' +
+									'@import "_mixins"; ' +
+									content
+								);
+							},
 						},
 					},
 				],
