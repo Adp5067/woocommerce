@@ -100,6 +100,8 @@ const webpackConfig = {
 				exclude: [
 					// Exclude node_modules/.pnpm but not node_modules/.pnpm/debug*
 					/node_modules(\/|\\)\.pnpm(\/|\\)(?!(debug))/,
+					// Exclude node_modules to develop tour kit in local.
+					/node_modules/,
 				],
 				use: {
 					loader: 'babel-loader',
