@@ -62,7 +62,7 @@ When a tour is rendered and focused, the following functionality exists:
 
 ## Configuration
 
-The main API for configuring a tour is the config object. See example usage and [types.ts](./src/types.ts) for the full definition.
+The main API for configuring a tour is the config object. See example usage and [types.ts](./types.ts) for the full definition.
 
 `config.steps`: An array of objects that define the content we wish to render on the page. Each step defined by:
 
@@ -84,12 +84,12 @@ The main API for configuring a tour is the config object. See example usage and 
   - `arrowIndicator`: Adds an arrow tip pointing at the reference element when provided.
   - `overlay`: Includes the semi-transparent overlay for all the steps (also blocks interactions with the rest of the page)
 
-- `callbacks`: An object of callbacks to handle side effects from various interactions (see [types.ts](./src/types.ts)).
+- `callbacks`: An object of callbacks to handle side effects from various interactions.
 
 - `popperModifiers`: The tour uses Popper to position steps near reference elements (and for other effects). An implementation can pass its own modifiers to tailor the functionality further e.g. more offset or padding from the reference element.
 - `tourRating` (optional - only in WPCOM Tour Kit variant):
   - `enabled`: Whether to show rating in last step.
-  - `useTourRating`: (optional) A hook to provide the rating from an external source/state (see [types.ts](./src/types.ts)).
+  - `useTourRating`: (optional) A hook to provide the rating from an external source/state.
   - `onTourRate`: (optional) A callback to fire off when a rating is submitted.
 
 - `portalElementId`: A string that lets you customize under which DOM element the Tour will be appended.
